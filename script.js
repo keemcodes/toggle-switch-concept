@@ -3,19 +3,18 @@ var switcher = document.getElementById('switch');
 switcher.addEventListener('click', () => {
 
     if (switcher.checked == true) {
-        // alert('hihi')
-        toPHP();
+        toPHP("checked");
     }
     else {
         // alert('hahaha')
-        toPHP();
+        toPHP("unchecked");
     }
 
 });
 
-function toPHP() {
+function toPHP(string) {
     let formData = new FormData();
-    formData.append('switcher', 'checked');
+    formData.append('switcher', string);
     fetch('action.php', {
         method: 'POST',
         body: formData,
